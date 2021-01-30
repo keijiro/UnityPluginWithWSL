@@ -14,8 +14,10 @@ else
     CXXFLAGS += -fPIC
     LDFLAGS += -rdynamic -fPIC
     ifeq ($(PLATFORM), MacOS)
+        CXXFLAGS += -target x86_64-apple-macos10.12
+        LDFLAGS += -target x86_64-apple-macos10.12
         OUTPUT = $(TARGET).bundle
-	NOSTRIP = true
+        NOSTRIP = true
     else
         OUTPUT = lib$(TARGET).so
     endif
