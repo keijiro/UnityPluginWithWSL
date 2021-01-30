@@ -1,0 +1,8 @@
+OUTPUT_TYPE = a
+
+SYSROOT = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk
+
+CXXFLAGS = --sysroot $(SYSROOT)
+LDFLAGS = --sysroot $(SYSROOT)
+
+include Common.mk

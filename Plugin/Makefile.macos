@@ -1,2 +1,7 @@
-PLATFORM = MacOS
+OUTPUT_TYPE = bundle
+
+TARGET_PLATFORM = x86_64-apple-macos10.12
+CXXFLAGS = -target $(TARGET_PLATFORM)
+LDFLAGS = -target $(TARGET_PLATFORM)
+
 include Common.mk

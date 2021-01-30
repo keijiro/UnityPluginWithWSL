@@ -1,2 +1,5 @@
-PLATFORM = Windows
+OUTPUT_TYPE = dll
+
+TOOLCHAIN = x86_64-w64-mingw32
+
 include Common.mk
