@@ -1,5 +1,8 @@
+PLATFORM = Windows
 OUTPUT_TYPE = dll
 
 TOOLCHAIN = x86_64-w64-mingw32
+CXX = $(TOOLCHAIN)-c++
+STRIP = $(TOOLCHAIN)-strip
 
 include Common.mk

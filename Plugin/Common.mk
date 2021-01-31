@@ -4,7 +4,7 @@
 
 TARGET = TestPlugin
 SRCS = Test.cpp
-OUT_DIR = ../Assets
+OUT_DIR = ../Assets/$(PLATFORM)
 
 #
 # Intermediate/output files
@@ -39,13 +39,17 @@ endif
 # Toolchain
 #
 
-ifdef TOOLCHAIN
-  BIN_PREFIX=$(TOOLCHAIN)-
+ifndef AR
+  AR = ar
 endif
 
-AR = $(BIN_PREFIX)ar
-CXX = $(BIN_PREFIX)c++
-STRIP = $(BIN_PREFIX)strip
+ifndef CXX
+  CXX = c++
+endif
+
+ifndef STRIP
+  STRIP = strip
+endif
 
 #
 # Building rules

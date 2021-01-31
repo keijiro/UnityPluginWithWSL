@@ -1,3 +1,4 @@
+PLATFORM = macOS
 OUTPUT_TYPE = bundle
 
 TARGET_PLATFORM = x86_64-apple-macos10.12

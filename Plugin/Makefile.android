@@ -1,0 +1,10 @@
+PLATFORM = Android
+OUTPUT_TYPE = so
+
+BIN_PATH = ${ANDROID_NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64/bin
+CXX = $(BIN_PATH)/aarch64-linux-android28-clang++
+STRIP = $(BIN_PATH)/aarch64-linux-android-strip
+
+LDFLAGS = -static-libstdc++
+
+include Common.mk

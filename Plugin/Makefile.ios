@@ -1,3 +1,4 @@
+PLATFORM = iOS
 OUTPUT_TYPE = a
 
 SYSROOT = $(shell xcrun --sdk iphoneos --show-sdk-path)
