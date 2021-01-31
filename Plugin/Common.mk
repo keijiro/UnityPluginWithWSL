@@ -64,18 +64,18 @@ clean:
 	rm -f $(OUTPUT) $(OBJS)
 
 $(TARGET).dll: $(OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $<
+	$(CXX) $(LDFLAGS) -o $@ $^
 	$(STRIP) $@
 
 $(TARGET).bundle: $(OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $<
+	$(CXX) $(LDFLAGS) -o $@ $^
 
 lib$(TARGET).so: $(OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $<
+	$(CXX) $(LDFLAGS) -o $@ $^
 	$(STRIP) $@
 
 lib$(TARGET).a : $(OBJS)
-	$(AR) -crv $@ $<
+	$(AR) -crv $@ $^
 
 .cpp.o:
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
