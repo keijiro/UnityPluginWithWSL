@@ -13,7 +13,9 @@ OUT_DIR = ../Assets
 OBJS = $(SRCS:.cpp=.o)
 
 ifeq ($(OUTPUT_TYPE), so)
-  OUTPUT = lib$(TARGET).$(OUTPUT_TYPE)
+  OUTPUT = lib$(TARGET).so
+else ifeq ($(OUTPUT_TYPE), a)
+  OUTPUT = lib$(TARGET).a
 else
   OUTPUT = $(TARGET).$(OUTPUT_TYPE)
 endif
@@ -45,11 +47,6 @@ AR = $(BIN_PREFIX)ar
 CXX = $(BIN_PREFIX)c++
 STRIP = $(BIN_PREFIX)strip
 
-# Don't try to strip .bundle files.
-ifeq ($(OUTPUT_TYPE), bundle)
-  STRIP = true
-endif
-
 #
 # Building rules
 #
@@ -57,7 +54,6 @@ endif
 all: $(OUTPUT)
 
 copy: $(OUTPUT)
-	$(STRIP) $(OUTPUT)
 	cp -f $(OUTPUT) $(OUT_DIR)/$(OUTPUT)
 
 clean:
@@ -65,14 +61,16 @@ clean:
 
 $(TARGET).dll: $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $<
+	$(STRIP) $@
 
 $(TARGET).bundle: $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $<
 
 lib$(TARGET).so: $(OBJS)
 	$(CXX) $(LDFLAGS) -o $@ $<
+	$(STRIP) $@
 
-$(TARGET).a : $(OBJS)
+lib$(TARGET).a : $(OBJS)
 	$(AR) -crv $@ $<
 
 .cpp.o:

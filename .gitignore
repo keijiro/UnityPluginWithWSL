@@ -20,6 +20,7 @@ Desktop.ini
 /UserSettings
 /Temp
 
+/Plugin/*.a
 /Plugin/*.o
 /Plugin/*.so
 /Plugin/*.dll

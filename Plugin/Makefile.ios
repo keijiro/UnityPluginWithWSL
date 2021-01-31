@@ -1,8 +1,6 @@
 OUTPUT_TYPE = a
 
-SYSROOT = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk
-
-CXXFLAGS = --sysroot $(SYSROOT)
-LDFLAGS = --sysroot $(SYSROOT)
+SYSROOT = $(shell xcrun --sdk iphoneos --show-sdk-path)
+CXXFLAGS = --sysroot $(SYSROOT) -isysroot $(SYSROOT) -fembed-bitcode
 
 include Common.mk

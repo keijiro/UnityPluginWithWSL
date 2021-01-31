@@ -3,7 +3,11 @@ using System.Runtime.InteropServices;
 
 public class TestPlugin : MonoBehaviour
 {
+#if UNITY_EDITOR || !UNITY_IOS
     [DllImport("TestPlugin", EntryPoint="generate_image")]
+#else
+    [DllImport("__Internal", EntryPoint="generate_image")]
+#endif
     private static extern void GenerateImage(Color32[] buffer, int width, int height);
 
     void Start ()
